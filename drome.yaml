@@ -1,0 +1,18 @@
+kind: pipeline
+name: default
+steps:
+- name: build
+  image: maven:3.6.3-openjdk-11
+  #image: parthsharma97/maven #Docker Private Repo
+  commands:
+  - mvn clean install package -Dmaven.test.skip=true -Dpmd.failOnViolation=false
+
+- name: docker  
+  image: plugins/docker
+  settings:
+    username: parthsharma97
+    password: P@rth123$
+    repo: parthsharma97/droneci
+
+#image_pull_secrets:
+#- dockerconfigjson # ~/.docker/config.json file auth tag value
