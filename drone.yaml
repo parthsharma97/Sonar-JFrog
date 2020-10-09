@@ -2,8 +2,8 @@ kind: pipeline
 name: default
 steps:
 - name: build
-  image: maven:3.6.3-openjdk-11
-  #image: parthsharma97/maven #Docker Private Repo
+#   image: maven:3.6.3-openjdk-11
+  image: parthsharma97/maven
   commands:
   - mvn clean package sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=parthsharma97 -Dsonar.login=f66492db524c8ba5584e18b3515251f1a7f7b712 -Dmaven.test.skip=true -Dpmd.failOnViolation=false
  
@@ -21,6 +21,5 @@ steps:
     username: parthsharma97
     password: P@rth123$
     repo: parthsharma97/droneci
-
-#image_pull_secrets:
-#- dockerconfigjson # ~/.docker/config.json file auth tag value
+image_pull_secrets:
+- dockerconfigjson # ~/.docker/config.json file auth tag value
