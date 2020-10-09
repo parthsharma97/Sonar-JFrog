@@ -4,7 +4,7 @@ steps:
 - name: build
 #   image: maven:3.6.3-openjdk-11
 #   image: docker-local/parthsharma97/maven/latest/
-  image: parthsharma97/maven
+  image: parthsharma97/maven/latest
   commands:
   - mvn clean package sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=parthsharma97 -Dsonar.login=f66492db524c8ba5584e18b3515251f1a7f7b712 -Dmaven.test.skip=true -Dpmd.failOnViolation=false
  
